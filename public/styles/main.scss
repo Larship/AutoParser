@@ -1,0 +1,232 @@
+html
+{
+	height: 100%;
+	
+	body
+	{
+		background-color: #DDDDDD !important;
+		height: 100%;
+	
+		.page-wrapper
+		{
+			height: 100%;
+			
+			> .container-fluid
+			{
+				height: 100%;
+				
+				> .row
+				{
+					height: 100%;
+				}
+			}
+		}
+	}
+}
+
+.page-navigation
+{
+	padding: 0px !important;
+}
+
+.main-content
+{
+	background-color: #FFFFFF;
+	border-left: 1px solid #999999;
+	min-height: 100% !important;
+	
+	.catalog-filter
+	{
+		margin-top: 10px;
+	}
+	
+	.items-list
+	{
+		margin-top: 15px;
+		
+		.items-list-title
+		{
+			font: bold 14px/20px  Arial;
+		}
+		
+		.items-list-body
+		{
+			margin-top: 15px;
+
+			.items-list-row
+			{
+				cursor: pointer;
+				
+				&.farpost
+				{
+					background-color: #FFFDDD;
+				}
+				
+				&.drom
+				{
+					background-color:#FFEEEE;
+				}
+				
+				.items-list-cell
+				{
+					vertical-align: middle;
+					
+					&.cell-item-id
+					{
+						text-align: center;
+					}
+					
+					.sold-item
+					{
+						text-decoration: line-through;
+					}
+				}
+			}
+		}
+
+		.car-price
+		{
+			font-weight: bold;
+			
+			&.green
+			{
+				color: #33AA33;
+			}
+			
+			&.red
+			{
+				color: #AA3333;
+			}
+		}
+		
+		.car-price-average
+		{
+			color: #BBBBBB;
+		}
+	}
+}
+
+.left
+{
+	float: left;
+}
+
+.right
+{
+	float: right;
+}
+
+.nav-pills > li > a
+{
+	border-radius: 0px !important;
+}
+
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus
+{
+	color:#ffffff !important;
+	background-color:#c92233 !important;
+}
+
+.nav-tabs
+{
+	border:none !important;
+}
+
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus
+{
+	background-color:#C92233 !important;
+	border-color:#C92233 !important;
+}
+
+.radio-group
+{
+	.btn
+	{
+		border-radius:0px;
+	}
+
+	.btn-danger
+	{
+		background:#F6F6F6 !important;
+		background:linear-gradient(to bottom, #F6F6F6, #DDDDDD) !important;
+		color:#3E3E3E !important;
+		border:1px solid #999999 !important;
+
+		&.active
+		{
+			background:#C92233 !important;
+			border-color:#B31E2D !important;
+			color:#FFFFFF !important;
+			cursor:default !important;
+		}
+	}
+}
+
+.parse-exist-items
+{
+	.exist-item
+	{
+		display: inline-block;
+		padding: 5px;
+		border: 1px solid #CCCCCC;
+		border-radius: 5px;
+		color: #999999;
+		margin: 0px 10px 10px 0px;
+		background-color: #F9F9F9;
+		
+		.glyphicon-remove
+		{
+			position: absolute;
+			top: 5px;
+			right: 5px;
+		}
+	}
+}
+
+.glyphicon-remove
+{
+	color: #666666;
+	cursor: pointer;
+	
+	&:hover
+	{
+		color: #AA0000;
+	}
+}
+
+.text-center
+{
+	text-align: center !important;
+}
+
+.info-popup
+{
+	position: absolute;
+	padding: 10px;
+	border: 1px solid #DDDDDD;
+	background-color: #F1F1F1;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	width: 500px;
+	z-index: 2;
+}
+
+.popup-sign
+{
+	cursor: pointer;
+	padding: 0px 5px;
+	border-bottom: 1px dashed #333;
+	font-weight: bold;
+	
+	&:hover
+	{
+		border-bottom: 0;
+	}
+}
+
+.car-additional-content
+{
+	font-weight: bold;
+	clear: left;
+}
