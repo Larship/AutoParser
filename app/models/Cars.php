@@ -164,13 +164,16 @@ class Cars extends Eloquent
 
 			if(!empty($itemCol['image_url']))
 			{
-				$filedata = file_get_contents($itemCol['image_url']);
-				$newFilename = $itemCol['internal_id'] . '.jpg';
-				file_put_contents(getcwd() . '/public/uploads/' . mb_convert_case($itemCol['car_mark']->title, MB_CASE_LOWER) . '/' . mb_convert_case($itemCol['car_model']->title, MB_CASE_LOWER) . '/' . $newFilename, $filedata);
-			}
-			else
-			{
-				$newFilename = '';
+                if (strpos($itemCol['image_url'], 'empty.gif') === false) {
+                    if (!starts_with($itemCol['image_url'], ['http://', 'https://']))
+                    {
+                        $itemCol['image_url'] = 'https://' . $itemCol['image_url'];
+                    }
+
+                    $filedata = file_get_contents($itemCol['image_url']);
+                    $newFilename = $itemCol['internal_id'] . '.jpg';
+                    file_put_contents(getcwd() . '/public/uploads/' . mb_convert_case($itemCol['car_mark']->title, MB_CASE_LOWER) . '/' . mb_convert_case($itemCol['car_model']->title, MB_CASE_LOWER) . '/' . $newFilename, $filedata);
+                }
 			}
 
 			if(isset($itemCol))

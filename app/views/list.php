@@ -100,13 +100,13 @@
 					<? foreach($carData as $carItem): ?>
 						<?
 							$url = '';
-						
+
 							switch($carItem->parser_id)
 							{
 								case 'Drom':
 									$url = 'http://' . $carItem->internal_id . '.drom.ru';
 									break;
-								
+
 								case 'Farpost':
 									$url = 'http://farpost.ru/' . $carItem->internal_id;
 									break;
@@ -140,21 +140,24 @@
 							</td>
 							<td class="items-list-cell">
 								<?=str_replace(', ', '<br>', $carItem->car_features)?>
+                <? if(!empty($carItem->car_mileage)): ?>
+                  <br><?=$carItem->car_mileage?> тыс. км.
+                <? endif; ?>
+                <? if(!empty($carItem->nodocs) || !empty($carItem->damaged)): ?>
+                  <br>
+                  <? if(!empty($carItem->nodocs)): ?>
+                    <img src="/public/assets/nodocs.png" title="Без документов">
+                  <? endif; ?>
+                  <? if(!empty($carItem->damaged)): ?>
+                    <img src="/public/assets/damaged.png" title="Битый или не на ходу">
+                  <? endif; ?>
+                <? endif; ?>
 							</td>
-							<!--<td class="items-list-cell">
-								<?=(!empty($carItem->car_mileage) ? $carItem->car_mileage : '')?>
-								<? if(!empty($carItem->nodocs)): ?>
-									<img src="/public/assets/nodocs.png" title="Без документов">
-								<? endif; ?>
-								<? if(!empty($carItem->damaged)): ?>
-									<img src="/public/assets/damaged.png" title="Битый или не на ходу">
-								<? endif; ?>
-							</td>-->
 							<td class="items-list-cell">
 								<? $colorClass = ''; ?>
 								<?
 									$averagePrice = 0;
-									
+
 									if(isset($averagePrices[$carItem->car_mark][$carItem->car_model][$carItem->car_year]))
 									{
 										$averagePrice = $averagePrices[$carItem->car_mark][$carItem->car_model][$carItem->car_year];
@@ -165,7 +168,7 @@
 								<? elseif($carItem->price > $averagePrice && $averagePrice != 0): ?>
 									<? $colorClass = ' red'; ?>
 								<? endif; ?>
-								
+
 								<span class="car-price<?=$colorClass?>"><?=number_format($carItem->price, 0, '.', ' ')?> р.</span><br>
 								<? if($averagePrice != 0): ?>
 									<span class="car-price-average"><?=number_format($averagePrice, 0, '.', ' ')?> р.</span><br>

@@ -115,7 +115,7 @@ class Parser_Drom extends ParserItem
 
 			if($startPos !== false)
 			{
-				$endPos = strpos($infoBody, '<span class="b-text-gray">Город:</span>', $startPos + strlen($startStr));
+				$endPos = strpos($infoBody, '<span class="b-text-gray"><svg', $startPos + strlen($startStr));
 
 				$content = substr($infoBody, $startPos, $endPos - $startPos);
 				$content = preg_replace('#</p>\s*<p>#im', '', $content);
